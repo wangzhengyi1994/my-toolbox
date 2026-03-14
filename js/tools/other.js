@@ -7,9 +7,9 @@
 // ----------------------------------------
 App.registerTool({
   id: 'qr-generator',
-  name: 'QR Generator',
+  name: '二维码生成器',
   description: 'Generate QR codes with custom colours and sizes',
-  category: 'Other',
+  category: '其他',
   icon: '\u{1F4F1}',
 
   render() {
@@ -146,9 +146,9 @@ App.registerTool({
 // ----------------------------------------
 App.registerTool({
   id: 'barcode-generator',
-  name: 'Barcode Generator',
+  name: '条形码生成器',
   description: 'Generate barcodes in various formats',
-  category: 'Other',
+  category: '其他',
   icon: '\u{1F4CA}',
 
   render() {
@@ -298,9 +298,9 @@ App.registerTool({
 // ----------------------------------------
 App.registerTool({
   id: 'unit-converter',
-  name: 'Unit Converter',
+  name: '单位换算',
   description: 'Convert between units of length, weight, temperature and more',
-  category: 'Other',
+  category: '其他',
   icon: '\u{1F4D0}',
 
   render() {
@@ -505,9 +505,9 @@ App.registerTool({
 // ----------------------------------------
 App.registerTool({
   id: 'time-calculator',
-  name: 'Time Calculator',
+  name: '时间计算器',
   description: 'Unix timestamps, timezone conversions and date formatting',
-  category: 'Other',
+  category: '其他',
   icon: '\u{1F550}',
 
   render() {
@@ -839,9 +839,9 @@ App.registerTool({
 // ----------------------------------------
 App.registerTool({
   id: 'scientific-calc',
-  name: 'Scientific Calculator',
+  name: '科学计算器',
   description: 'Full scientific calculator with trig, log and memory functions',
-  category: 'Other',
+  category: '其他',
   icon: '\u{1F9EE}',
 
   render() {
@@ -1233,9 +1233,9 @@ App.registerTool({
 // ----------------------------------------
 App.registerTool({
   id: 'text-scratchpad',
-  name: 'Text Scratchpad',
+  name: '文本便签',
   description: 'Transform, clean and manipulate text with various operations',
-  category: 'Other',
+  category: '其他',
   icon: '\u{1F4CB}',
 
   render() {
@@ -1407,9 +1407,9 @@ App.registerTool({
 // ----------------------------------------
 App.registerTool({
   id: 'paper-sizes',
-  name: 'Paper Sizes',
+  name: '纸张尺寸',
   description: 'Reference chart for standard paper sizes (A, B, C, US)',
-  category: 'Other',
+  category: '其他',
   icon: '\u{1F4C4}',
 
   render() {
@@ -1556,9 +1556,9 @@ App.registerTool({
 // ----------------------------------------
 App.registerTool({
   id: 'glyph-browser',
-  name: 'Glyph Browser',
+  name: '字符浏览器',
   description: 'Browse and copy Unicode characters by category',
-  category: 'Other',
+  category: '其他',
   icon: '\u{2726}',
 
   render() {

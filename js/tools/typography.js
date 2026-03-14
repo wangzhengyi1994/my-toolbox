@@ -7,9 +7,9 @@
 // ----------------------------------------
 App.registerTool({
   id: 'px-to-rem',
-  name: 'PX to REM',
+  name: 'PX/REM 换算',
   description: 'Convert between PX, REM and EM units',
-  category: 'Typography',
+  category: '排版',
   icon: '\u{1F4CF}',
 
   render() {
@@ -141,9 +141,9 @@ App.registerTool({
 // ----------------------------------------
 App.registerTool({
   id: 'line-height-calc',
-  name: 'Line Height Calculator',
+  name: '行高计算器',
   description: 'Calculate optimal line heights for different use cases',
-  category: 'Typography',
+  category: '排版',
   icon: '\u{1F4D0}',
 
   render() {
@@ -237,9 +237,9 @@ App.registerTool({
 // ----------------------------------------
 App.registerTool({
   id: 'typography-calc',
-  name: 'Typography Calculator',
+  name: '排版单位换算',
   description: 'Convert between pt, px, em, rem, and percentage units',
-  category: 'Typography',
+  category: '排版',
   icon: '\u{1F522}',
 
   render() {

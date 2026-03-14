@@ -7,9 +7,9 @@
 // ========================================
 App.registerTool({
   id: 'social-media-cropper',
-  name: 'Social Media Cropper',
+  name: '社交媒体裁切',
   description: 'Crop images to perfect social media dimensions',
-  category: 'Social Media',
+  category: '社交媒体',
   icon: '✂️',
 
   render() {
@@ -330,9 +330,9 @@ App.registerTool({
 // ========================================
 App.registerTool({
   id: 'seamless-scroll-gen',
-  name: 'Seamless Scroll Generator',
+  name: '轮播图生成器',
   description: 'Split panoramic images into overlapping carousel panels',
-  category: 'Social Media',
+  category: '社交媒体',
   icon: '📜',
 
   render() {

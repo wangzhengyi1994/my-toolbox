@@ -7,9 +7,9 @@
 // ----------------------------------------
 App.registerTool({
   id: 'base-converter',
-  name: 'Base Converter',
+  name: '进制转换',
   description: 'Convert numbers between binary, octal, decimal and hexadecimal',
-  category: 'Developer',
+  category: '开发工具',
   icon: '\u{1F522}',
 
   render() {
@@ -132,9 +132,9 @@ App.registerTool({
 // ----------------------------------------
 App.registerTool({
   id: 'encoding-tools',
-  name: 'Encoding Tools',
+  name: '编码工具',
   description: 'Base64, URL, HTML entity encoding and hash generation',
-  category: 'Developer',
+  category: '开发工具',
   icon: '\u{1F510}',
 
   render() {
@@ -537,9 +537,9 @@ App.registerTool({
 // ----------------------------------------
 App.registerTool({
   id: 'regex-tester',
-  name: 'Regex Tester',
+  name: '正则测试器',
   description: 'Test regular expressions with real-time match highlighting',
-  category: 'Developer',
+  category: '开发工具',
   icon: '\u{1F50D}',
 
   render() {
@@ -737,9 +737,9 @@ App.registerTool({
 // ----------------------------------------
 App.registerTool({
   id: 'meta-tag-gen',
-  name: 'Meta Tag Generator',
+  name: 'Meta 标签生成器',
   description: 'Generate SEO-optimized meta tags for your web pages',
-  category: 'Developer',
+  category: '开发工具',
   icon: '\u{1F3F7}\u{FE0F}',
 
   render() {
@@ -999,9 +999,9 @@ App.registerTool({
 // ----------------------------------------
 App.registerTool({
   id: 'tailwind-cheatsheet',
-  name: 'Tailwind Cheat Sheet',
+  name: 'Tailwind 速查表',
   description: 'Searchable reference for common Tailwind CSS utilities',
-  category: 'Developer',
+  category: '开发工具',
   icon: '\u{1F3A8}',
 
   render() {
@@ -1386,9 +1386,9 @@ App.registerTool({
 // ----------------------------------------
 App.registerTool({
   id: 'word-counter',
-  name: 'Word Counter',
+  name: '字数统计',
   description: 'Count words, characters, sentences and more with reading time estimates',
-  category: 'Developer',
+  category: '开发工具',
   icon: '\u{1F4DD}',
 
   render() {

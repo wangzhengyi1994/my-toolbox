@@ -109,10 +109,10 @@ const App = {
   // Render the tool grid on the home page
   renderGrid() {
     const grid = document.getElementById('tools-grid');
-    const categoryOrder = ['Colour', 'Typography', 'Image', 'Social Media', 'Developer', 'Other'];
+    const categoryOrder = ['颜色', '排版', '图片', '社交媒体', '开发工具', '其他'];
     const categoryIcons = {
-      'Colour': '🎨', 'Typography': '🔤', 'Image': '🖼️',
-      'Social Media': '📱', 'Developer': '⚡', 'Other': '🔧'
+      '颜色': '🎨', '排版': '🔤', '图片': '🖼️',
+      '社交媒体': '📱', '开发工具': '⚡', '其他': '🔧'
     };
 
     let html = '';

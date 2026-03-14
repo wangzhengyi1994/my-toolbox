@@ -7,9 +7,9 @@
 // ----------------------------------------
 App.registerTool({
   id: 'colour-converter',
-  name: 'Colour Converter',
-  description: 'Convert colours between HEX, RGB, HSL, HSV and CMYK',
-  category: 'Colour',
+  name: '颜色转换器',
+  description: '在 HEX、RGB、HSL、HSV、CMYK 之间互转',
+  category: '颜色',
   icon: '\u{1F504}',
 
   render() {
@@ -106,9 +106,9 @@ App.registerTool({
 // ----------------------------------------
 App.registerTool({
   id: 'tailwind-shades',
-  name: 'Tailwind Shade Generator',
-  description: 'Generate Tailwind-style colour shades from any colour',
-  category: 'Colour',
+  name: 'Tailwind 色阶生成器',
+  description: '从任意颜色生成完整 Tailwind 色阶（50-950）',
+  category: '颜色',
   icon: '\u{1F3AF}',
 
   render() {
@@ -211,9 +211,9 @@ App.registerTool({
 // ----------------------------------------
 App.registerTool({
   id: 'contrast-checker',
-  name: 'Contrast Checker',
-  description: 'Check WCAG colour contrast ratios between foreground and background',
-  category: 'Colour',
+  name: '对比度检查器',
+  description: '检查前景色与背景色的 WCAG 对比度合规状态',
+  category: '颜色',
   icon: '\u26A1',
 
   render() {
@@ -341,9 +341,9 @@ App.registerTool({
 // ----------------------------------------
 App.registerTool({
   id: 'gradient-generator',
-  name: 'Gradient Generator',
-  description: 'Create CSS gradients with live preview',
-  category: 'Colour',
+  name: '渐变生成器',
+  description: '可视化创建 CSS 渐变，实时预览代码',
+  category: '颜色',
   icon: '\u{1F308}',
 
   render() {
@@ -523,9 +523,9 @@ App.registerTool({
 // ----------------------------------------
 App.registerTool({
   id: 'colour-blindness-sim',
-  name: 'Colour Blindness Simulator',
-  description: 'Simulate how images appear to people with colour vision deficiency',
-  category: 'Colour',
+  name: '色盲模拟器',
+  description: '模拟色盲用户看到的图像效果',
+  category: '颜色',
   icon: '\u{1F441}\uFE0F',
 
   render() {
@@ -662,9 +662,9 @@ App.registerTool({
 // ----------------------------------------
 App.registerTool({
   id: 'harmony-generator',
-  name: 'Harmony Generator',
-  description: 'Generate colour harmonies: complementary, analogous, triadic and more',
-  category: 'Colour',
+  name: '配色方案生成器',
+  description: '生成互补、类似、三角等和谐配色方案',
+  category: '颜色',
   icon: '\u{1F3B5}',
 
   render() {
@@ -768,9 +768,9 @@ App.registerTool({
 // ----------------------------------------
 App.registerTool({
   id: 'palette-generator',
-  name: 'Palette Generator',
-  description: 'Generate random harmonious colour palettes with lock and regenerate',
-  category: 'Colour',
+  name: '调色板生成器',
+  description: '随机生成和谐配色方案，支持锁定颜色重新生成',
+  category: '颜色',
   icon: '\u{1F3B2}',
 
   render() {

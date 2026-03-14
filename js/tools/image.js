@@ -7,9 +7,9 @@
 // ========================================
 App.registerTool({
   id: 'image-converter',
-  name: 'Image Converter',
+  name: '图片格式转换',
   description: 'Convert images between PNG, JPEG, WebP and AVIF formats',
-  category: 'Image',
+  category: '图片',
   icon: '🔄',
 
   render() {
@@ -154,9 +154,9 @@ App.registerTool({
 // ========================================
 App.registerTool({
   id: 'svg-optimiser',
-  name: 'SVG Optimiser',
+  name: 'SVG 压缩',
   description: 'Optimise and minify SVG code',
-  category: 'Image',
+  category: '图片',
   icon: '✂️',
 
   render() {
@@ -367,9 +367,9 @@ App.registerTool({
 // ========================================
 App.registerTool({
   id: 'placeholder-generator',
-  name: 'Placeholder Generator',
+  name: '占位图生成器',
   description: 'Generate placeholder images with custom dimensions and text',
-  category: 'Image',
+  category: '图片',
   icon: '🖼️',
 
   render() {
@@ -496,9 +496,9 @@ App.registerTool({
 // ========================================
 App.registerTool({
   id: 'favicon-generator',
-  name: 'Favicon Generator',
+  name: 'Favicon 生成器',
   description: 'Generate favicons at all standard sizes from a single image',
-  category: 'Image',
+  category: '图片',
   icon: '⭐',
 
   render() {
@@ -624,9 +624,9 @@ App.registerTool({
 // ========================================
 App.registerTool({
   id: 'watermarker',
-  name: 'Watermarker',
+  name: '水印工具',
   description: 'Add text watermarks to images',
-  category: 'Image',
+  category: '图片',
   icon: '💧',
 
   render() {
@@ -818,9 +818,9 @@ App.registerTool({
 // ========================================
 App.registerTool({
   id: 'image-splitter',
-  name: 'Image Splitter',
+  name: '图片切割',
   description: 'Split an image into a grid of tiles',
-  category: 'Image',
+  category: '图片',
   icon: '🔲',
 
   render() {
@@ -969,9 +969,9 @@ App.registerTool({
 // ========================================
 App.registerTool({
   id: 'matte-generator',
-  name: 'Matte Generator',
+  name: '背景填充',
   description: 'Add a coloured matte/border around an image',
-  category: 'Image',
+  category: '图片',
   icon: '🖼️',
 
   render() {

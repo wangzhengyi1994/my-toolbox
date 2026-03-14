@@ -4,9 +4,9 @@
 
 App.registerTool({
   id: 'image-upscaler',
-  name: 'Image Upscaler',
+  name: '图片放大（AI）',
   description: 'AI-style image upscaling with advanced interpolation',
-  category: 'Image',
+  category: '图片',
   icon: '🔍',
 
   render() {
