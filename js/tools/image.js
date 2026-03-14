@@ -1129,3 +1129,123 @@ App.registerTool({
     });
   }
 });
+
+// PNG to ICO Converter
+App.registerTool({
+  id: 'png-to-ico',
+  name: 'PNG 转 ICO',
+  description: '将 PNG 图片转换为 ICO 格式，支持多尺寸（16/32/48/64/128/256px）',
+  category: '图片',
+  icon: '🪟',
+  render() {
+    return `
+      <div class="tool-section">
+        <label class="upload-label" id="ico-upload-label">
+          <span class="upload-icon">📁</span>
+          <span>拖拽或点击上传 PNG 图片</span>
+          <input type="file" id="ico-file-input" accept=".png,image/png" style="display:none">
+        </label>
+        <div id="ico-preview" style="display:none;margin-top:16px">
+          <img id="ico-original-img" style="max-width:200px;max-height:200px;border-radius:8px;border:1px solid var(--border)">
+          <p id="ico-img-info" style="color:var(--text-muted);margin-top:8px;font-size:13px"></p>
+        </div>
+      </div>
+      <div class="tool-section">
+        <div class="tool-section-title">输出尺寸</div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:8px" id="ico-sizes">
+          ${[16,32,48,64,128,256].map(s => `
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer;padding:8px 12px;border:1px solid var(--border);border-radius:6px;background:var(--surface)">
+              <input type="checkbox" value="${s}" ${[16,32,48].includes(s)?'checked':''} class="ico-size-check">
+              <span style="font-family:monospace">${s}×${s}</span>
+            </label>
+          `).join('')}
+        </div>
+      </div>
+      <button class="btn btn-primary" id="ico-convert-btn" style="margin-top:8px" disabled>转换并下载 .ico</button>
+      <div id="ico-status" style="margin-top:12px;font-size:13px;color:var(--accent)"></div>
+    `;
+  },
+  init() {
+    const input = document.getElementById('ico-file-input');
+    const label = document.getElementById('ico-upload-label');
+    const btn = document.getElementById('ico-convert-btn');
+    let imgData = null;
+
+    const loadFile = file => {
+      if (!file || !file.type.includes('png')) {
+        App.utils.toast('请上传 PNG 格式图片');
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = e => {
+        const img = document.getElementById('ico-original-img');
+        img.src = e.target.result;
+        img.onload = () => {
+          document.getElementById('ico-preview').style.display = '';
+          document.getElementById('ico-img-info').textContent = `${img.naturalWidth} × ${img.naturalHeight}px`;
+          imgData = img;
+          btn.disabled = false;
+        };
+      };
+      reader.readAsDataURL(file);
+    };
+
+    input.addEventListener('change', e => loadFile(e.target.files[0]));
+    label.addEventListener('dragover', e => { e.preventDefault(); label.style.borderColor = 'var(--accent)'; });
+    label.addEventListener('dragleave', () => { label.style.borderColor = ''; });
+    label.addEventListener('drop', e => { e.preventDefault(); label.style.borderColor = ''; loadFile(e.dataTransfer.files[0]); });
+
+    btn.addEventListener('click', () => {
+      const sizes = [...document.querySelectorAll('.ico-size-check')]
+        .filter(c => c.checked).map(c => parseInt(c.value));
+      if (!sizes.length) { App.utils.toast('请至少选择一个尺寸'); return; }
+      document.getElementById('ico-status').textContent = '生成中...';
+
+      // Render each size to canvas → PNG blob
+      Promise.all(sizes.map(size => new Promise(resolve => {
+        const canvas = document.createElement('canvas');
+        canvas.width = canvas.height = size;
+        canvas.getContext('2d').drawImage(imgData, 0, 0, size, size);
+        canvas.toBlob(blob => blob.arrayBuffer().then(buf => resolve({ size, buf })), 'image/png');
+      }))).then(entries => {
+        const ico = buildIco(entries);
+        const url = URL.createObjectURL(new Blob([ico], { type: 'image/x-icon' }));
+        const a = document.createElement('a'); a.href = url; a.download = 'favicon.ico'; a.click();
+        URL.revokeObjectURL(url);
+        document.getElementById('ico-status').textContent = `✓ 已下载 favicon.ico（${sizes.join('/')}px）`;
+      });
+    });
+
+    function buildIco(entries) {
+      // ICO format: ICONDIR + ICONDIRENTRY × n + PNG data × n
+      const n = entries.length;
+      const dirSize = 6 + 16 * n;
+      let offset = dirSize;
+      const offsets = entries.map(e => { const o = offset; offset += e.buf.byteLength; return o; });
+      const total = offset;
+      const buf = new ArrayBuffer(total);
+      const view = new DataView(buf);
+      // ICONDIR
+      view.setUint16(0, 0, true);  // reserved
+      view.setUint16(2, 1, true);  // type: ICO
+      view.setUint16(4, n, true);  // count
+      // ICONDIRENTRY × n
+      entries.forEach((e, i) => {
+        const base = 6 + 16 * i;
+        const s = e.size === 256 ? 0 : e.size;
+        view.setUint8(base, s);      // width (0 = 256)
+        view.setUint8(base+1, s);    // height
+        view.setUint8(base+2, 0);    // color count
+        view.setUint8(base+3, 0);    // reserved
+        view.setUint16(base+4, 1, true);  // planes
+        view.setUint16(base+6, 32, true); // bit count
+        view.setUint32(base+8, e.buf.byteLength, true);  // size
+        view.setUint32(base+12, offsets[i], true);       // offset
+      });
+      // PNG data
+      const u8 = new Uint8Array(buf);
+      entries.forEach((e, i) => u8.set(new Uint8Array(e.buf), offsets[i]));
+      return buf;
+    }
+  }
+});
