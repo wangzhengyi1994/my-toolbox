@@ -1133,8 +1133,8 @@ App.registerTool({
 // PNG to ICO Converter
 App.registerTool({
   id: 'png-to-ico',
-  name: 'PNG 转 ICO',
-  description: '将 PNG 图片转换为 ICO 格式，支持多尺寸（16/32/48/64/128/256px）',
+  name: 'PNG/SVG 转 ICO',
+  description: '将 PNG 或 SVG 图片转换为 ICO 格式，支持多尺寸（16/32/48/64/128/256px）',
   category: '图片',
   icon: '🪟',
   render() {
@@ -1142,8 +1142,8 @@ App.registerTool({
       <div class="tool-section">
         <label class="upload-label" id="ico-upload-label">
           <span class="upload-icon">📁</span>
-          <span>拖拽或点击上传 PNG 图片</span>
-          <input type="file" id="ico-file-input" accept=".png,image/png" style="display:none">
+          <span>拖拽或点击上传 PNG / SVG 图片</span>
+          <input type="file" id="ico-file-input" accept=".png,.svg,image/png,image/svg+xml" style="display:none">
         </label>
         <div id="ico-preview" style="display:none;margin-top:16px">
           <img id="ico-original-img" style="max-width:200px;max-height:200px;border-radius:8px;border:1px solid var(--border)">
@@ -1172,8 +1172,8 @@ App.registerTool({
     let imgData = null;
 
     const loadFile = file => {
-      if (!file || !file.type.includes('png')) {
-        App.utils.toast('请上传 PNG 格式图片');
+      if (!file || (!file.type.includes('png') && !file.type.includes('svg'))) {
+        App.utils.toast('请上传 PNG 或 SVG 格式图片');
         return;
       }
       const reader = new FileReader();
